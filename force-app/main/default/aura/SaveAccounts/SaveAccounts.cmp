@@ -1,0 +1,33 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	
+    <aura:attribute name="NewAccount" type="Object"/>
+    <aura:attribute name="SimpleNewAccount" type="Object"/>
+    <aura:attribute name="NewAccountError" type="String"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="force:refreshView" action="{!c.onRefreshView}" />
+    
+    <force:recordData aura:id="AccountRecordCreator" 
+                      layoutType="FULL"
+                      targetRecord="{!v.NewAccount}"
+                      targetFields="{!v.SimpleNewAccount}"
+                      targetError="{!v.NewAccountError}" />
+    
+    <div class="Create Contact">
+        <lightning:card iconName="action:new_account" title="Create Account">
+            <div class="slds-p-horizontal--small">
+                <lightning:input aura:id="AccountField" label="Name" value="{!v.SimpleNewAccount.Name}"/> 
+                <br/>
+                <lightning:button label="Save Now" variant="brand" onclick="{!c.handleSaveAccount}"/>
+            </div>
+        </lightning:card>
+    </div>
+    
+    <!-- Display Lightning Data Service errors -->
+    <aura:if isTrue="{!not(empty(v.NewAccountError))}">
+        <div class="recordError">
+            {!v.NewAccountError}</div>
+    </aura:if>
+
+    
+</aura:component>

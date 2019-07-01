@@ -1,0 +1,5 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global">
+	 
+    <ltng:require scripts="{!$Resource.ccv1 + '/Package/js/ccv/ccv1.js'}" afterScriptsLoaded="{!c.doInit}" />  
+
+</aura:component>

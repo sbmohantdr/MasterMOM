@@ -1,0 +1,6 @@
+<aura:component >
+	<c:campingHeader/>
+    <c:campingList/>
+    <c:Expense message="You look nice today." test='one'/>
+    
+</aura:component>
